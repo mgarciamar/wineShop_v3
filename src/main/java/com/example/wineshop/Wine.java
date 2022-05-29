@@ -18,44 +18,44 @@ public class Wine {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    @NonNull
-    @NotNull
+    //@NonNull
+    @NotNull(message = "Id no puede ser nulo")
     private  Long id;
 
     @NotNull
     private int winery_id;
 
-    @NotEmpty
+    @NotEmpty(message = "El nombre no puede estar vacío")
     private String name;
 
     @NotNull
-    @Range(min=1900, max=2022)
+    @Range(min=1900, max=2022, message = "El año debe estar entre [1900,2022]")
     private String year;
 
     @NotNull
-    @Range(min=0)
+    @Range(min=0, message = "El valor de num reviews no puede ser negativo")
     private int num_reviews;
 
     @NotNull
-    @Range(min=0, max=5)
+    @Range(min=0, max=5, message = "El valor de rating debe estar entre [0,5]")
     private float rating;
 
     @NotNull
     private int region_id;
 
     @NotNull
-    @Range(min=0)
+    @Range(min=0, message = "El valor de price no puede ser negativo")
     private double price;
 
     @NotNull
     private int type_id;
 
     @NotNull
-    @Range(min=1, max=5)
+    @Range(min=1, max=5, message = "El valor de body debe estar entre [1,5]")
     private String body;
 
     @NotNull
-    @Range(min=1, max=5)
+    @Range(min=1, max=5, message = "El valor de acidity debe estar entre [1,5]")
     private String acidity;
 
 /*
